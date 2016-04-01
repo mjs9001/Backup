@@ -1,0 +1,11 @@
+---
+
+- hosts: webservers
+  vars:
+   - WelcomeMsg: "This is to Show that i have started Learning Ansible"
+   - WelcomeMsg2: "I now know how to automate operations using ansible"
+  tasks:
+   - name: Setup Nginx
+     apt: pkg=nginx state=installed update_cache=true
+   - name: Copy index.html file
+     template: src=index.html.j2 dest=/usr/share/nginx/html/index.html
